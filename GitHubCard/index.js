@@ -5,7 +5,7 @@
 */
 
 const userMe = axios.get('https://api.github.com/users/Eddie98Lopez')
-  .then(res=>{console.log(res)})
+  .then(res=>{return res})
   .catch(err=>console.log('Something didnt go right this is an error message!'))
 
   
