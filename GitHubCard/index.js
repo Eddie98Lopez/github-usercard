@@ -5,10 +5,10 @@
 */
 
 const userMe = axios.get('https://api.github.com/users/Eddie98Lopez')
-  .then(res=>{return res})
+  .then(res=>userCard(res))
   .catch(err=>console.log('Something didnt go right this is an error message!'))
 
-  
+  console.log(userMe)
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
@@ -34,7 +34,14 @@ const userMe = axios.get('https://api.github.com/users/Eddie98Lopez')
     user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = ['Eddie98Lopez',"tetondan","dustinmyers","justsml","luishrd","bigknell"];
+
+const array = followersArray.forEach(item => {
+
+  const userMe = axios.get(`https://api.github.com/users/${item}`)
+  .then(res=>userCard(res))
+  .catch(err=>console.log('Something didnt go right this is an error message!'))
+})
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
@@ -137,7 +144,6 @@ function userCard (object){
 
 };
 
-userCard(userMe)
 
 
 /*
