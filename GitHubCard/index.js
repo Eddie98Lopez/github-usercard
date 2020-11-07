@@ -4,9 +4,11 @@
     https://api.github.com/users/<your name>
 */
 
-axios.get('https://api.github.com/users/Eddie98Lopez')
+const userMe = axios.get('https://api.github.com/users/Eddie98Lopez')
   .then(res=>{console.log(res)})
   .catch(err=>console.log('Something didnt go right this is an error message!'))
+
+  
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
@@ -66,9 +68,8 @@ function userCard (object){
   //img 
 
   const userImg = document.createElement('img')
-  const imgSrc = object.data.avatar_url
 
-  userImg.src = imgSrc
+  userImg.src = object.data['avatar_url']
   userImg.setAttribute('alt', 'user profile pic')
 
   cardContainer.appendChild(userImg)
@@ -135,6 +136,8 @@ function userCard (object){
 
 
 };
+
+userCard(userMe)
 
 
 /*
